@@ -98,10 +98,10 @@ sum' :: Num t => [t] -> t
 sum' [] = 0
 sum' (x:xs) = x + sum' xs
 
---lenght
-lenght' :: Num t => [t1] -> t
-lenght' [] = 0
-lenght' (_:xs) = 1 + lenght' xs
+--length
+length' :: Num t => [t1] -> t
+length' [] = 0
+length' (_:xs) = 1 + lenght' xs
 
 --head
 head' :: [a] -> a
@@ -149,11 +149,11 @@ elem' x (y:ys)
     | x /= y = elem' x ys
 
 --quicksort with list comprehension
-quicksort' :: (Ord a) => [a] -> [a]
-quicksort' [] = []
-quicksort' (x:xs) = 
-    let smaller = quicksort' [ a | a <- xs, a <= x] 
-        bigger  = quicksort' [ a | a <- xs, a > x]  
+quickSort' :: (Ord a) => [a] -> [a]
+quickSort' [] = []
+quickSort' (x:xs) = 
+    let smaller = quickSort' [ a | a <- xs, a <= x] 
+        bigger  = quickSort' [ a | a <- xs, a > x]  
     in smaller ++ [x] ++ bigger
 
 --[5,1,9,4,6,7,3]
@@ -177,10 +177,10 @@ filter' p (x:xs)
 
 
 --qicksort with filter
-quicksort'' [] = []
-quicksort'' (x:xs) = 
-    let smaller' = quicksort'' (filter' (<=x) xs)
-        bigger'  = quicksort'' (filter' (>x) xs)
+quickSort'' [] = []
+quickSort'' (x:xs) = 
+    let smaller' = quickSort'' (filter' (<=x) xs)
+        bigger'  = quickSort'' (filter' (>x) xs)
     in smaller' ++ [x] ++ bigger'
 
 
